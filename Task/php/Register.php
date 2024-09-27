@@ -2,14 +2,12 @@
 // Establish Database connection
 $mysqli = new mysqli("localhost", "root", "1234", "users_details", 3307);
 
-// check for errors
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
 var_dump($_POST);
 
-// Check for username in POST request
 if (isset($_POST['username'])) {
     $username = $_POST["username"];
 } else {
@@ -45,7 +43,7 @@ if (mysqli_stmt_execute($stmt)) {
     echo "Error: " . mysqli_error($mysqli);
 }
 
-// Close statement and connection
+// Close statement 
 mysqli_stmt_close($stmt);
 mysqli_close($mysqli);
 ?>
