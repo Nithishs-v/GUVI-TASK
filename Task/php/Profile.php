@@ -14,7 +14,7 @@ if (!empty($email) || !empty($upswd1)  )
 $host = "localhost";
 $dbusername = "root";
 $dbpassword = "";
-$dbname = "guvi_db";
+$dbname = "guvidb";
 
 
 
