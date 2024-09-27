@@ -1,0 +1,52 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+.container-fluid {
+    height: 100%;
+    display: flex;
+}
+.green-half {
+    background-color: #EEEEEE;
+    width: 50%;
+    height: 100%;
+    clip-path: ellipse(75% 100% at 25% 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./Assets/loginpic.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+.green-half .text-overlay {
+    position: absolute;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    z-index: 2;
+}
+.login-half {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup-text {
+    text-align: center;
+    margin-top: 15px;
+}
+.btn-custom-green {
+    background-color: #4BB543; 
+    border-color: #4BB543; 
+    color: white; 
+}
+.btn-custom-green:hover {
+    background-color: #3a9b48; 
+    border-color: #3a9b48; 
+}
