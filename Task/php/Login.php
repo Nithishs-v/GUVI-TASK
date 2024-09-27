@@ -10,8 +10,7 @@ $mysqli = new mysqli("localhost", "root", "1234", "users_details",3307);
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-
-  $username = $_GET['username'];
+   $email = $_GET['email'];
   $password = $_GET['password'];
 
   //$hashed_password = md5($password);
