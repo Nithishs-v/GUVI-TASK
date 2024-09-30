@@ -30,19 +30,19 @@ function displayProfile() {
 function updateData(e) {
     e.preventDefault();
 
-    var username = $("input[id='username']").val();
-    var firstname = $("input[id='firstname']").val();
-    var lastname = $("input[id='lastname']").val();
+    var name = $("input[id='name']").val();
+    var number = $("input[id='number']").val();
+    var dob = $("input[id='dob']").val();
+    var age = $("input[id='age']").val();
     var password = $("input[id='password']").val();
     var email = $("input[id='email']").val();
-    var phoneNumber = $("input[id='phonenumber']").val();
-    var dob = $("input[id='dob']").val();
+   
 
     $.ajax({
         type: "POST", // Use POST method for sensitive data
         url: "http://localhost/Guvi/php/updateProfile.php",
         data: {
-            firstname: firstname,
+            name: name,
             lastname: lastname,
             username: username,
             password: password,
