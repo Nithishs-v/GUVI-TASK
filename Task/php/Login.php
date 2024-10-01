@@ -6,8 +6,8 @@ header('Access-Control-Allow-Origin: *');
 
 // FreeSQL Connection details
 $host = "sql12.freesqldatabase.com"; // Replace with FreeSQL hostname
-$dbname = "your_database_name"; // Replace with your FreeSQL database name
-$username = "your_username"; // Replace with your FreeSQL username
+$dbname = "sql12734604"; // Replace with your FreeSQL database name
+$username = "sql12734604"; // Replace with your FreeSQL username
 $password = " A2kiDhuTI6"; // Replace with your FreeSQL password
 $port = 3306; // FreeSQL typically uses 3306, but adjust if different
 
@@ -20,15 +20,15 @@ if ($mysqli->connect_error) {
 }
 
 // Get email and password from the request
-$email = $_GET['email'] ?? '';
+$username = $_GET['username'] ?? '';
 $password = $_GET['password'] ?? '';
 
 $response = false;
 
-if (!empty($email) && !empty($password)) {
+if (!empty($username) && !empty($password)) {
     // Prepare the SQL statement to prevent SQL injection
-    $stmt = $mysqli->prepare("SELECT * FROM registered_users WHERE email = ?");
-    $stmt->bind_param("s", $email);
+    $stmt = $mysqli->prepare("SELECT * FROM Login WHERE name = ?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
