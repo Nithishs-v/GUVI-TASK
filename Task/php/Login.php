@@ -5,10 +5,10 @@ session_start();
 header('Access-Control-Allow-Origin: *');
 
 // FreeSQL Connection details
-$host = "freesql_host"; // Replace with FreeSQL hostname
+$host = "sql12.freesqldatabase.com"; // Replace with FreeSQL hostname
 $dbname = "your_database_name"; // Replace with your FreeSQL database name
 $username = "your_username"; // Replace with your FreeSQL username
-$password = "your_password"; // Replace with your FreeSQL password
+$password = " A2kiDhuTI6"; // Replace with your FreeSQL password
 $port = 3306; // FreeSQL typically uses 3306, but adjust if different
 
 // Connect to FreeSQL database
