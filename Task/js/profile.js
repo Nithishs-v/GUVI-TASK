@@ -5,7 +5,7 @@ function displayProfile() {
 
     $.ajax({
         type: "GET",
-        url: "http://localhost/Guvi/php/profile.php",
+        url: "http://localhost/Task/php/profile.php",
         data: {
             username: username
         },
@@ -40,7 +40,7 @@ function updateData(e) {
 
     $.ajax({
         type: "POST", // Use POST method for sensitive data
-        url: "http://localhost/Guvi/php/updateProfile.php",
+        url: "http://localhost/Task/php/updateProfile.php",
         data: {
             name: name,
             lastname: lastname,
