@@ -13,7 +13,7 @@ if (!empty($email) || !empty($upswd1)  )
 
 $host = "localhost";
 $dbusername = "root";
-$dbpassword = "";
+$dbpassword = "12344";
 $dbname = "guvidb";
 
 
@@ -49,23 +49,6 @@ else if($upswd1 == $upswd2){
       $stmt->bind_param("sssisi",$email,$upswd1,$name,$age,$dob,$phno);
       $stmt->execute();
       }
-
-// sending information in Mangodb database
-    //   $c->insertOne(["Name" => $name,
-    //                  "email" => $email,
-    //                  "password" => $upswd1,
-    //                  "Age" => $age, 
-    //                  "DOB" => $dob, 
-    //                  "Phone_number" => $phno]
-    //               );
-
-    //   echo "<script> New record inserted sucessfully </script>";
-
-    //  }
-    // else 
-    // {
-    //   echo "Someone already register using this email";
-    //  }
      $stmt->close();
      $conn->close(); 
     }
