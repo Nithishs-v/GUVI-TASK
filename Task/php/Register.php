@@ -1,49 +1,64 @@
 <?php
-// Establish Database connection
-$mysqli = new mysqli("localhost", "root", "1234", "users_details", 3307);
+// FreeSQL connection details
+$host = "freesql_host"; // Replace with your FreeSQL host
+$dbname = "your_database_name"; // Replace with your FreeSQL database name
+$username = "your_username"; // Replace with your FreeSQL username
+$password = "your_password"; // Replace with your FreeSQL password
+$port = 3306; // FreeSQL typically uses 3306, but adjust if different
 
+// Establish Database connection
+$mysqli = new mysqli($host, $username, $password, $dbname, $port);
+
+// Check connection
 if ($mysqli->connect_error) {
     die("Connection failed: " . $mysqli->connect_error);
 }
 
-var_dump($_POST);
-
+// Check and fetch the POST request data
 if (isset($_POST['username'])) {
     $username = $_POST["username"];
 } else {
-    echo "Username not found";
+    die("Username not found");
 }
 
-// Check for email in POST request
 if (isset($_POST['email'])) {
     $email = $_POST["email"];
 } else {
-    echo "Email not found";
+    die("Email not found");
 }
 
-// Check for password in POST request
 if (isset($_POST['password'])) {
     $password = $_POST["password"];
 } else {
-    echo "Password not found";
+    die("Password not found");
 }
 
-// Check form data
+// Hash the password before storing it in the database
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+// Debugging: Check form data (optional)
 var_dump($username, $email, $password);
 
-// Prepare and execute Insert statement
-$stmt = mysqli_prepare($mysqli, "INSERT INTO registered_users(username, email, password) VALUES(?, ?, ?)");
+// Prepare and execute Insert statement using prepared statements
+$stmt = $mysqli->prepare("INSERT INTO registered_users(username, email, password) VALUES(?, ?, ?)");
 
-// Bind parameters (s for string)
-mysqli_stmt_bind_param($stmt, "sss", $username, $email, $password);
+if ($stmt) {
+    // Bind parameters (s for string)
+    $stmt->bind_param("sss", $username, $email, $hashed_password);
 
-if (mysqli_stmt_execute($stmt)) {
-    echo "User Registered Successfully!";
+    // Execute the statement
+    if ($stmt->execute()) {
+        echo "User Registered Successfully!";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close the statement
+    $stmt->close();
 } else {
-    echo "Error: " . mysqli_error($mysqli);
+    echo "Error in preparing statement: " . $mysqli->error;
 }
 
-// Close statement 
-mysqli_stmt_close($stmt);
-mysqli_close($mysqli);
+// Close the database connection
+$mysqli->close();
 ?>
