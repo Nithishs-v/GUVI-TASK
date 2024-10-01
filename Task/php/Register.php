@@ -1,10 +1,10 @@
 <?php
 // FreeSQL connection details
-$host = "sql12.freesqldatabase.com"; // Replace with your FreeSQL host
-$dbname = "sql12734604"; // Replace with your FreeSQL database name
-$username = "sql12734604"; // Replace with your FreeSQL username
-$password = "A2kiDhuTI6"; // Replace with your FreeSQL password
-$port = 3306; // FreeSQL typically uses 3306, but adjust if different
+$host = "sql12.freesqldatabase.com"; 
+$dbname = "sql12734604";
+$username = "sql12734604"; 
+$password = "A2kiDhuTI6"; 
+$port = 3306; 
 
 // Establish Database connection
 $mysqli = new mysqli($host, $username, $password, $dbname, $port);
@@ -33,11 +33,7 @@ if (isset($_POST['password'])) {
     die("Password not found");
 }
 
-// Hash the password before storing it in the database
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-// Debugging: Check form data (optional)
-var_dump($username, $email, $password);
 
 // Prepare and execute Insert statement using prepared statements
 $stmt = $mysqli->prepare("INSERT INTO register(username, email, password) VALUES(?, ?, ?)");
