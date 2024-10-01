@@ -3,7 +3,7 @@
 $host = "sql12.freesqldatabase.com"; // Replace with your FreeSQL host
 $dbname = "your_database_name"; // Replace with your FreeSQL database name
 $username = "sql12734604"; // Replace with your FreeSQL username
-$password = "your_password"; // Replace with your FreeSQL password
+$password = "A2kiDhuTI6"; // Replace with your FreeSQL password
 $port = 3306; // FreeSQL typically uses 3306, but adjust if different
 
 // Establish Database connection
