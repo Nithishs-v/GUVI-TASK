@@ -10,8 +10,6 @@ $(document).ready(function()
         var username=$("input[id='username']").val();
         var password=$("input[id='password']").val();
 
-        // alert(username);
-
         $.ajax({
             type: "GET",
             url: "http://localhost/Task/php/login.php",
