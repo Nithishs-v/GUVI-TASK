@@ -14,7 +14,7 @@ $(document).ready(function()
 
         $.ajax({
             type: "GET",
-            url: "http://localhost/Guvi/php/login.php",
+            url: "http://localhost/Task/php/login.php",
             data: {
                 username: $("input[id='username']").val(),
                 password: $("input[id='password']").val(),
