@@ -4,21 +4,20 @@ header('Access-Control-Allow-Origin: *');
 
 require '../vendor/autoload.php';
 
-    $client = new MongoDB\Client("mongodb://localhost:27017");
+   // $client = new MongoDB\Client("mongodb://localhost:27017");
 
     $profiledb = $client -> profiledb;
 
     $userCollection = $profiledb -> usersProfile;   
 
     $updateResult = $userCollection->updateOne(
-        [ 'username' => $_GET["username"] ],
+        [ 'name' => $_GET["name"] ],
         [ '$set' => [ 
-            'firstname' => $_GET["firstname"],
-            'lastname' => $_GET["lastname"],
-            'password' => $_GET["password"],
-            'email' => $_GET["email"],
-            'phoneNumber' => $_GET["phoneNumber"],
+            'mobile' => $_GET["mobile"],
             'dob' => $_GET["dob"],
+            'age' => $_GET["age"],
+            'email' => $_GET["email"],
+            
          ]]
     );
 
@@ -27,13 +26,12 @@ require '../vendor/autoload.php';
     foreach($data as $dt)
     {
     $profile=[
-        "username"=>$dt["username"],
-        "password"=>$dt["password"],
-        "email"=>$dt["email"],
-        "phoneNumber"=>$dt["phoneNumber"],
-        "firstname"=>$dt["firstname"],
-        "lastname"=>$dt["lastname"],
+        "name"=>$dt["name"],
+        "mobile"=>$dt["mobile"],
         "dob"=>$dt["dob"],
+        "age"=>$dt["age"],
+        "email"=>$dt["email"],
+        
     ];
     header('Content-type: application/json');
     echo json_encode($profile);
