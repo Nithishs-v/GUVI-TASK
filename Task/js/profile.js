@@ -34,7 +34,7 @@ function updateData(e) {
     var number = $("input[id='number']").val();
     var dob = $("input[id='dob']").val();
     var age = $("input[id='age']").val();
-    var password = $("input[id='password']").val();
+    
     var email = $("input[id='email']").val();
    
 
@@ -43,12 +43,11 @@ function updateData(e) {
         url: "http://localhost/Task/php/updateProfile.php",
         data: {
             name: name,
-            lastname: lastname,
-            username: username,
-            password: password,
+            number: number,
+            dob :dob,
+            age:age,
             email: email,
-            phoneNumber: phoneNumber,
-            dob: dob
+           
         },
         success: function(data) {
             console.log(data);
