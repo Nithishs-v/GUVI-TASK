@@ -1,4 +1,6 @@
 <?php
+include "./Connections/RedisConn.php";
+session_start();
 
 $name = $_POST['username'];
 $mobile  = $_POST['mobile'];
