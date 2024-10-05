@@ -1,5 +1,5 @@
 <?php
-
+include "./Connections/RedisConn.php";
 session_start();
 
 header('Access-Control-Allow-Origin: *');
