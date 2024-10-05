@@ -2,7 +2,7 @@
 
 header('Access-Control-Allow-Origin: *');
 
-require '../vendor/autoload.php';
+require './autoload.php';
 
    // $client = new MongoDB\Client("mongodb://localhost:27017");
 
